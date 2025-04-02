@@ -1,0 +1,52 @@
+function main(workbook: ExcelScript.Workbook, bank: number, edo: number, edo2: number, fecha: number) {
+    // Obtener el rango seleccionado en la hoja activa
+    let range = workbook.getSelectedRange();
+    let values = range.getValues();  // Obtener los valores del rango seleccionado
+
+    // Obtener las dimensiones del rango (número de filas y columnas)
+    let rows = range.getRowCount();
+    let cols = range.getColumnCount();
+
+    // Variable para almacenar el valor de "soporte" que se asignará a las celdas
+    let soporte = "" as string;
+
+    // Iterar sobre cada fila en el rango seleccionado
+    for (let row = 0; row < rows; row++) {
+        // Obtener el valor del banco (columna indicada por el parámetro 'bank')
+        let banco = values[row][bank] as string;
+        // Obtener el valor de la fecha (columna indicada por el parámetro 'fecha')
+        let quincena = values[row][fecha] as string;
+
+        // Verificar si el campo de banco no está vacío
+        if (banco.length !== 0) {
+            // Extraer el mes de la fecha (se espera un formato "dd/mm/yyyy")
+            let mes = quincena.toString().substring(3, 5) as string;
+
+            // Asignar el valor de "soporte" basado en el banco y el mes extraído
+            switch (banco) {
+                case "SANTANDER":
+                    soporte = "CTA_2787_".concat(mes);  // Para Santander, concatenar con el mes
+                    break;
+                case "BANCOMER":
+                    soporte = "CTA_0757_".concat(mes);  // Para Bancomer, concatenar con el mes
+                    break;
+                case "BANAMEX":
+                    soporte = "CTA_9734_".concat(mes);  // Para Banamex, concatenar con el mes
+                    break;
+                case "HSBC":
+                    soporte = "CTA_4509_".concat(mes);  // Para HSBC, concatenar con el mes
+                    break;
+                case "BANORTE":
+                    soporte = "CTA_8963_".concat(mes);  // Para Banorte, concatenar con el mes
+                    break;
+            }
+            
+            // Asignar el valor de "soporte" a las columnas indicadas por 'edo' y 'edo2'
+            values[row][edo] = soporte;
+            values[row][edo2] = soporte;
+        }
+    }
+
+    // Establecer los valores modificados en el rango seleccionado
+    range.setValues(values);
+}
