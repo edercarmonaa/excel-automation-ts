@@ -1,0 +1,49 @@
+// ESCRIBE EN LETRA UNA CALIFICACIÓN,
+// EN UN RANGO DE 1.0 A 10.0
+
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener el rango seleccionado en la hoja de cálculo.
+    let numericGradesRange = workbook.getSelectedRange();
+    let numericGrades = numericGradesRange.getValues();
+
+    // Obtener el número de filas y columnas del rango seleccionado.
+    let rows = numericGradesRange.getRowCount();
+    let cols = numericGradesRange.getColumnCount();
+    
+    // Crear un arreglo para almacenar los valores convertidos en texto.
+    let letterGrades: string[][] = [];
+    
+    /**
+     * Función para convertir un número en su representación en palabras.
+     * @param num Número a convertir.
+     * @returns Representación en palabras del número.
+     */
+    function numberToWords(num: number): string {
+        const ones = ["CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE"];
+        const tens = ["", "", "VEINTE", "TREINTA", "CUARENTA", "CINCUENTA", "SESENTA", "SETENTA", "OCHENTA", "NOVENTA"];
+        const teens = ["DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE", "DIECISEIS", "DIECISIETE", "DIECIOCHO", "DIECINUEVE"];
+        
+        if (num < 10) return ones[num];
+        if (num < 20) return teens[num - 10];
+        if (num < 100) {
+            let ten = Math.floor(num / 10);
+            let one = num % 10;
+            return tens[ten] + (one ? " y " + ones[one] : "");
+        }
+        return "";
+    }
+
+    // Convertir cada calificación numérica en su equivalente en palabras.
+    for (let i = 0; i < numericGrades.length; i++) {
+        let grade = Number(numericGrades[i][0]);
+        let gradeInWords = numberToWords(grade);
+        letterGrades.push([gradeInWords]);
+    }
+    
+    // Obtener la hoja activa.
+    let sheet = workbook.getActiveWorksheet();
+    
+    // Definir el rango de celdas donde se almacenarán las calificaciones en palabras.
+    let letterGradesRange = sheet.getRange("B1:B10");
+    letterGradesRange.setValues(letterGrades);
+}
