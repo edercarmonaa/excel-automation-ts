@@ -1,0 +1,50 @@
+// ASIGNA EL NUMERO CUENTA DEPENDIENDO DEL BANCO QUE SE TRATE 
+
+function main(workbook: ExcelScript.Workbook, bank: number, account: number) {
+    // Obtener el rango actualmente seleccionado en la hoja de cálculo.
+    let range = workbook.getSelectedRange();
+    let values = range.getValues();
+
+    // Obtener el número de filas y columnas del rango seleccionado.
+    let rows = range.getRowCount();
+    let cols = range.getColumnCount();
+
+    // Variable para almacenar el número de cuenta asignado.
+    let cuenta = "" as string;
+
+    // Iterar sobre cada fila del rango seleccionado.
+    for (let row = 0; row < rows; row++) {
+        let banco = values[row][bank] as string;
+        
+        // Verificar si la celda del banco no está vacía.
+        if (banco.length !== 0) {
+            // Asignar el número de cuenta correspondiente según el banco.
+            switch (banco) {
+                case "SERFIN":
+                    cuenta = "123456789";
+                    break;
+                case "BBVA":
+                    cuenta = "1011121314";
+                    break;
+                case "CITI":
+                    cuenta = "15161718192";
+                    break;
+                case "HSBC":
+                    cuenta = "2021222324";
+                    break;
+                case "BANORTE":
+                    cuenta = "2526272829";
+                    break;
+                case "COMPE":
+                    cuenta = "3132333435";
+                    break;
+            }
+            
+            // Asignar el número de cuenta correspondiente a la columna de cuenta.
+            values[row][account] = cuenta;
+        }
+    }
+    
+    // Establecer los valores actualizados en el rango seleccionado.
+    range.setValues(values);
+}
