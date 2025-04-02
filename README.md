@@ -11,6 +11,10 @@ Este script permite copiar el contenido de un rango seleccionado en la hoja acti
 ## del_col
 Este código es útil cuando se necesita limpiar el contenido de un archivo de Excel eliminando las columnas C a L en todas las hojas. Ideal para procesar datos y reducir información innecesaria antes de análisis o exportación.
 
+## bank_support
+Este script toma un rango de celdas seleccionado por el usuario, y con base en el banco y la fecha, asigna un valor específico a dos columnas del rango. El valor asignado sigue un patrón específico que depende del banco (por ejemplo, "SANTANDER" genera un valor como "CTA_2787_mm" donde "mm" es el mes de la fecha proporcionada). Este proceso se realiza para todas las filas del rango seleccionado.
+
 ##Indice
 - [copy_paste](copy_paste.osts)
 - [del_col](del_col.osts)
+- [bank_support](bank_support.osts)
