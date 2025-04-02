@@ -16,6 +16,7 @@ Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Onli
 - [new_sheet](new_sheet.osts)
 - [random](random.osts)
 - [school_grades](school_grades.osts)
+- [width](width.osts)
 
 ## account_number
 Este script en ExcelScript asigna un número de cuenta específico a las filas del rango seleccionado, según el banco indicado en una columna. Si el banco no está vacío, el script verifica el nombre del banco y asigna el número de cuenta correspondiente a la columna de cuenta. Los bancos incluidos en el script son "SERFIN", "BBVA", "CITI", "HSBC", "BANORTE" y "COMPE". Finalmente, los valores actualizados se asignan nuevamente al rango.
@@ -46,3 +47,6 @@ Este script en ExcelScript selecciona un número aleatorio de celdas dentro de u
 
 ## school_grades
 Este script en ExcelScript toma un rango de calificaciones numéricas seleccionadas en una hoja de cálculo y convierte cada calificación en su equivalente en palabras en español. Primero, obtiene las calificaciones numéricas del rango seleccionado y las convierte a palabras usando la función numberToWords. Esta función maneja números del 0 al 99, cubriendo unidades, decenas y números entre 10 y 19. Luego, almacena las calificaciones en palabras en un rango específico (de la celda B1 a B10). Así, el script convierte las calificaciones numéricas a su representación textual y las coloca en un nuevo rango en la hoja de cálculo.
+
+## width
+Este script de ExcelScript recorre todas las hojas de un libro de Excel y ajusta el formato de las columnas B, C, D y E. Primero, obtiene todas las hojas del libro y luego iterativamente accede a las columnas especificadas. Para cada columna, se desactiva el ajuste de texto (wrap text) y se autoajusta el ancho de la columna para que se adapte al contenido. El rango de cada columna se determina según las filas utilizadas en cada hoja. Al finalizar, se imprime un mensaje de confirmación en la consola.
