@@ -1,6 +1,3 @@
-// AJUSTA EL ANCHO DE LAS COLUMNAS AL TAMAÑO DEL TEXTO 
-//DE LAS COLUMNAS B A E, DE TODAS LAS HOJAS EN EL LIBRO MENOS LA ULTIMA
-
 function main(workbook: ExcelScript.Workbook) {
     // Obtener todas las hojas del libro
     let sheets = workbook.getWorksheets();
