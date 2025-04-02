@@ -13,26 +13,30 @@ Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Onli
 - [copy_paste](copy_paste.osts)
 - [date](date.osts)
 - [del_col](del_col.osts)
+- [new_sheet](new_sheet.osts)
 
-## copy_paste
-
-Este script permite copiar el contenido de un rango seleccionado en la hoja activa y pegarlo en todas las demás hojas del libro en la misma posición. Es útil cuando necesitas replicar un conjunto de datos o formatos de manera rápida y consistente en múltiples hojas dentro del mismo libro de Excel.
-
-## del_col
-Este código es útil cuando se necesita limpiar el contenido de un archivo de Excel eliminando las columnas C a L en todas las hojas. Ideal para procesar datos y reducir información innecesaria antes de análisis o exportación.
+## account_number
+Este script en ExcelScript asigna un número de cuenta específico a las filas del rango seleccionado, según el banco indicado en una columna. Si el banco no está vacío, el script verifica el nombre del banco y asigna el número de cuenta correspondiente a la columna de cuenta. Los bancos incluidos en el script son "SERFIN", "BBVA", "CITI", "HSBC", "BANORTE" y "COMPE". Finalmente, los valores actualizados se asignan nuevamente al rango.
 
 ## bank_support
 Este script toma un rango de celdas seleccionado por el usuario, y con base en el banco y la fecha, asigna un valor específico a dos columnas del rango. El valor asignado sigue un patrón específico que depende del banco (por ejemplo, "SANTANDER" genera un valor como "CTA_2787_mm" donde "mm" es el mes de la fecha proporcionada). Este proceso se realiza para todas las filas del rango seleccionado.
 
-## date
-La funcionalidad de este script de Excel es convertir las fechas en un rango seleccionado de la hoja activa, de un formato específico (que parece ser 'D/MM/YYYY', con un día de dos dígitos seguido de un mes de dos dígitos y un año de cuatro dígitos) a un nuevo formato ('MM/DD/YYYY').
+## charge_credit
+Este script en ExcelScript realiza varias operaciones sobre el rango seleccionado: elimina los apóstrofes de las celdas, aplica un formato numérico con separación de miles y dos decimales, y ajusta los valores de las columnas moviendo el contenido de la segunda columna a la primera si no es un + o dejando la celda vacía si es un +. Finalmente, reasigna los valores modificados y garantiza que el formato numérico se mantenga consistente con dos decimales.
 
 ## combine
 Este script de ExcelScript está diseñado para combinar las descripciones de filas consecutivas con celdas vacías en la columna de fechas. El contenido de las filas vacías se combina en la fila de la fecha vacía hasta que se encuentre una fila con una fecha válida.
 
-## charge_credit
-Este script en ExcelScript realiza varias operaciones sobre el rango seleccionado: elimina los apóstrofes de las celdas, aplica un formato numérico con separación de miles y dos decimales, y ajusta los valores de las columnas moviendo el contenido de la segunda columna a la primera si no es un + o dejando la celda vacía si es un +. Finalmente, reasigna los valores modificados y garantiza que el formato numérico se mantenga consistente con dos decimales.
+## copy_paste
+Este script permite copiar el contenido de un rango seleccionado en la hoja activa y pegarlo en todas las demás hojas del libro en la misma posición. Es útil cuando necesitas replicar un conjunto de datos o formatos de manera rápida y consistente en múltiples hojas dentro del mismo libro de Excel.
 
-## account_number
-Este script en ExcelScript asigna un número de cuenta específico a las filas del rango seleccionado, según el banco indicado en una columna. Si el banco no está vacío, el script verifica el nombre del banco y asigna el número de cuenta correspondiente a la columna de cuenta. Los bancos incluidos en el script son "SERFIN", "BBVA", "CITI", "HSBC", "BANORTE" y "COMPE". Finalmente, los valores actualizados se asignan nuevamente al rango.
+## date
+La funcionalidad de este script de Excel es convertir las fechas en un rango seleccionado de la hoja activa, de un formato específico (que parece ser 'D/MM/YYYY', con un día de dos dígitos seguido de un mes de dos dígitos y un año de cuatro dígitos) a un nuevo formato ('MM/DD/YYYY').
+
+## del_col
+Este código es útil cuando se necesita limpiar el contenido de un archivo de Excel eliminando las columnas C a L en todas las hojas. Ideal para procesar datos y reducir información innecesaria antes de análisis o exportación.
+
+##new_sheet
+Este script en ExcelScript recorre los valores dentro del rango seleccionado por el usuario en la hoja activa. Para cada valor (que debe ser un nombre de hoja válido y no vacío), verifica si ya existe una hoja con ese nombre. Si la hoja no existe, crea una nueva hoja con ese nombre. Si ya existe, muestra un mensaje en la consola indicando que la hoja ya está presente.
+
 
