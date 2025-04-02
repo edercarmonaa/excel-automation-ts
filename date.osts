@@ -1,0 +1,37 @@
+//Convierte fechas de fotmato DDMMYYYY a formato a MM/DD/YYYY
+// de un rango de celdas seleccionadas
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener el rango actualmente seleccionado en la hoja de cálculo.
+    let range = workbook.getSelectedRange();
+
+    // Obtener los valores del rango seleccionado.
+    let values = range.getValues();
+
+    // Obtener el número de filas y columnas del rango seleccionado.
+    let rows = range.getRowCount();
+    let cols = range.getColumnCount();
+
+    // Iterar sobre cada celda del rango seleccionado.
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            let fechaOriginal = values[row][col] as string;
+            
+            // Verificar que la cadena tiene exactamente 10 caracteres.
+            if (fechaOriginal.length === 10) {
+                // Extraer el día, mes y año de la cadena original.
+                let dia = fechaOriginal.substring(1, 3);
+                let mes = fechaOriginal.substring(3, 5);
+                let anio = fechaOriginal.substring(5, 9);
+                
+                // Crear la nueva cadena de fecha en formato 'MM/DD/YYYY'.
+                let fechaConvertida = `${mes}/${dia}/${anio}`;
+                
+                // Asignar la nueva fecha a la celda correspondiente.
+                values[row][col] = fechaConvertida;
+            }
+        }
+    }
+    
+    // Establecer los valores actualizados en el rango seleccionado.
+    range.setValues(values);
+}
