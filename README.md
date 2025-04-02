@@ -14,6 +14,7 @@ Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Onli
 - [date](date.osts)
 - [del_col](del_col.osts)
 - [new_sheet](new_sheet.osts)
+- [random](random.osts)
 
 ## account_number
 Este script en ExcelScript asigna un número de cuenta específico a las filas del rango seleccionado, según el banco indicado en una columna. Si el banco no está vacío, el script verifica el nombre del banco y asigna el número de cuenta correspondiente a la columna de cuenta. Los bancos incluidos en el script son "SERFIN", "BBVA", "CITI", "HSBC", "BANORTE" y "COMPE". Finalmente, los valores actualizados se asignan nuevamente al rango.
@@ -39,4 +40,6 @@ Este código es útil cuando se necesita limpiar el contenido de un archivo de E
 ##new_sheet
 Este script en ExcelScript recorre los valores dentro del rango seleccionado por el usuario en la hoja activa. Para cada valor (que debe ser un nombre de hoja válido y no vacío), verifica si ya existe una hoja con ese nombre. Si la hoja no existe, crea una nueva hoja con ese nombre. Si ya existe, muestra un mensaje en la consola indicando que la hoja ya está presente.
 
+## random
+Este script en ExcelScript selecciona un número aleatorio de celdas dentro de un rango especificado en la hoja activa. El número de celdas a seleccionar es pasado como argumento n. Primero, verifica que n no exceda el número total de celdas en el rango. Luego, selecciona n celdas aleatorias y les aplica un formato (en este caso, un fondo amarillo). Para lograrlo, el script calcula índices aleatorios, los convierte en coordenadas de fila y columna, y aplica el formato deseado a esas celdas seleccionadas.
 
