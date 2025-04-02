@@ -11,6 +11,7 @@ Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Onli
 - [date](date.osts)
 - [combine](combine.osts)
 - [charge_credit](charge_credit.osts)
+- [account_number](account_number.osts)
 
 ## copy_paste
 
@@ -30,4 +31,7 @@ Este script de ExcelScript está diseñado para combinar las descripciones de fi
 
 ## charge_credit
 Este script en ExcelScript realiza varias operaciones sobre el rango seleccionado: elimina los apóstrofes de las celdas, aplica un formato numérico con separación de miles y dos decimales, y ajusta los valores de las columnas moviendo el contenido de la segunda columna a la primera si no es un + o dejando la celda vacía si es un +. Finalmente, reasigna los valores modificados y garantiza que el formato numérico se mantenga consistente con dos decimales.
+
+## account_number
+Este script en ExcelScript asigna un número de cuenta específico a las filas del rango seleccionado, según el banco indicado en una columna. Si el banco no está vacío, el script verifica el nombre del banco y asigna el número de cuenta correspondiente a la columna de cuenta. Los bancos incluidos en el script son "SERFIN", "BBVA", "CITI", "HSBC", "BANORTE" y "COMPE". Finalmente, los valores actualizados se asignan nuevamente al rango.
 
