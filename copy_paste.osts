@@ -1,0 +1,23 @@
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener la hoja activa y el rango seleccionado
+    const activeSheet = workbook.getActiveWorksheet();  // Obtiene la hoja que está activa en el momento
+    const selectedRange = workbook.getSelectedRange();  // Obtiene el rango de celdas actualmente seleccionado
+
+    // Obtener todas las hojas del libro
+    const sheets = workbook.getWorksheets();  // Obtiene una lista de todas las hojas del libro
+
+    // Iterar sobre todas las hojas del libro
+    sheets.forEach(sheet => {
+        // Evitar copiar en la misma hoja (no copiar a la hoja activa)
+        if (sheet.getName() !== activeSheet.getName()) {
+            // Obtener el rango objetivo en la hoja actual, basado en la dirección del rango seleccionado
+            const targetRange = sheet.getRange(selectedRange.getAddress()); 
+            
+            // Copiar los valores del rango seleccionado en la hoja activa a la hoja actual
+            targetRange.copyFrom(selectedRange, ExcelScript.RangeCopyType.all);  // Copia el contenido de todas las celdas (valores, formato, etc.)
+        }
+    });
+
+    // Mensaje de confirmación en la consola indicando que las celdas se copiaron correctamente
+    console.log('Celdas copiadas y pegadas en todas las hojas en la misma posición.');
+}
