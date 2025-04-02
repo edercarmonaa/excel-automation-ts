@@ -1,7 +1,3 @@
-//INSERTA HOJAS EN UN LIBRO DE EXCEL
-//DE UN RANGO DE CELDAS SELECCIONADO OBTIENE EL NUMEO DE HOJAS 
-// Y NOMBRE DE CADA HOJA 
-
 function main(workbook: ExcelScript.Workbook) {
     // Obtener la hoja activa en el libro de Excel.
     let sheet = workbook.getActiveWorksheet();
