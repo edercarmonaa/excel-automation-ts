@@ -1,5 +1,3 @@
-// ASIGNA EL NUMERO CUENTA DEPENDIENDO DEL BANCO QUE SE TRATE 
-
 function main(workbook: ExcelScript.Workbook, bank: number, account: number) {
     // Obtener el rango actualmente seleccionado en la hoja de cálculo.
     let range = workbook.getSelectedRange();
