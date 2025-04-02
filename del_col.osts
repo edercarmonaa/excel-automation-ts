@@ -1,0 +1,21 @@
+// ELIMINA LAS COLUMNAS DE LA C A LA L
+// DE TODAS LAS HOJAS EN EL LIBRO MENOS LA ULTIMA 
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener todas las hojas del libro
+    const sheets = workbook.getWorksheets();
+
+    // Iterar sobre cada hoja en el libro
+    sheets.forEach(sheet => {
+        // Obtener el número de filas utilizadas en la hoja activa
+        const rowCount = sheet.getUsedRange()?.getRowCount() || 0;
+
+        // Eliminar columnas desde la C (índice 2) hasta la L (índice 11)
+        // Se inicia desde la última (L) hacia la primera (C) para evitar cambios en los índices
+        for (let col = 11; col >= 2; col--) {
+            sheet.getRangeByIndexes(0, col, rowCount, 1).delete(ExcelScript.DeleteShiftDirection.left);
+        }
+    });
+
+    // Mensaje de confirmación en la consola
+    console.log('Columnas eliminadas en todas las hojas.');
+}
