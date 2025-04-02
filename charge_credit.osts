@@ -2,6 +2,7 @@
 // del simbolo que le precede 
 // + abono
 // - cargo 
+
 function main(workbook: ExcelScript.Workbook) {
     // Obtener el rango actualmente seleccionado en la hoja de cálculo.
     let range = workbook.getSelectedRange();
