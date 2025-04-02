@@ -4,6 +4,13 @@
 
 Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Online. Contiene ejemplos prácticos de manipulación de datos, automatización de tareas y personalización de hojas de cálculo.
 
+##Indice
+- [copy_paste](copy_paste.osts)
+- [del_col](del_col.osts)
+- [bank_support](bank_support.osts)
+- [date](date.osts)
+- [combine](combine.osts)
+
 ## copy_paste
 
 Este script permite copiar el contenido de un rango seleccionado en la hoja activa y pegarlo en todas las demás hojas del libro en la misma posición. Es útil cuando necesitas replicar un conjunto de datos o formatos de manera rápida y consistente en múltiples hojas dentro del mismo libro de Excel.
@@ -17,8 +24,6 @@ Este script toma un rango de celdas seleccionado por el usuario, y con base en e
 ##date
 La funcionalidad de este script de Excel es convertir las fechas en un rango seleccionado de la hoja activa, de un formato específico (que parece ser 'D/MM/YYYY', con un día de dos dígitos seguido de un mes de dos dígitos y un año de cuatro dígitos) a un nuevo formato ('MM/DD/YYYY').
 
-##Indice
-- [copy_paste](copy_paste.osts)
-- [del_col](del_col.osts)
-- [bank_support](bank_support.osts)
-- [date](date.osts)
+##combine
+Este script de ExcelScript está diseñado para combinar las descripciones de filas consecutivas con celdas vacías en la columna de fechas. El contenido de las filas vacías se combina en la fila de la fecha vacía hasta que se encuentre una fila con una fecha válida.
+
