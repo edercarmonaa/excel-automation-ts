@@ -1,0 +1,31 @@
+//INSERTA HOJAS EN UN LIBRO DE EXCEL
+//DE UN RANGO DE CELDAS SELECCIONADO OBTIENE EL NUMEO DE HOJAS 
+// Y NOMBRE DE CADA HOJA 
+
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener la hoja activa en el libro de Excel.
+    let sheet = workbook.getActiveWorksheet();
+
+    // Obtener el rango de celdas actualmente seleccionado por el usuario.
+    let selectedRange = workbook.getSelectedRange();
+
+    // Obtener los valores dentro del rango seleccionado.
+    let values = selectedRange.getValues();
+
+    // Recorrer cada valor del rango y crear una hoja con ese nombre.
+    values.flat().forEach(name => {
+        // Verificar que el valor sea un string y que no esté vacío.
+        if (typeof name === "string" && name.trim() !== "") {
+            // Comprobar si ya existe una hoja con el mismo nombre.
+            let existingSheet = workbook.getWorksheet(name);
+            
+            // Si no existe una hoja con ese nombre, crearla.
+            if (!existingSheet) {
+                workbook.addWorksheet(name);
+            } else {
+                // Mostrar un mensaje en la consola si la hoja ya existe.
+                console.log(`La hoja "${name}" ya existe.`);
+            }
+        }
+    });
+}
