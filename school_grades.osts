@@ -1,6 +1,3 @@
-// ESCRIBE EN LETRA UNA CALIFICACIÓN,
-// EN UN RANGO DE 1.0 A 10.0
-
 function main(workbook: ExcelScript.Workbook) {
     // Obtener el rango seleccionado en la hoja de cálculo.
     let numericGradesRange = workbook.getSelectedRange();
