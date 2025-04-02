@@ -1,0 +1,36 @@
+// AJUSTA EL ANCHO DE LAS COLUMNAS AL TAMAÑO DEL TEXTO 
+//DE LAS COLUMNAS B A E, DE TODAS LAS HOJAS EN EL LIBRO MENOS LA ULTIMA
+
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener todas las hojas del libro
+    let sheets = workbook.getWorksheets();
+
+    // Definir las columnas a modificar (B, C, D, E en base 1, pero en el código se usa base 0)
+    const columns = [2, 3, 4, 5];
+
+    // Iterar sobre todas las hojas del libro
+    sheets.forEach(sheet => {
+        // Iterar sobre las columnas especificadas
+        columns.forEach(colNumber => {
+            // Obtener el rango de celdas utilizado en la hoja
+            let usedRange = sheet.getUsedRange();
+            if (!usedRange) return; // Evitar errores en hojas vacías
+
+            // Determinar la cantidad de filas utilizadas en la hoja
+            let lastRow = usedRange.getRowCount();
+            
+            // Obtener el rango de la columna específica
+            // `colNumber - 1` porque el índice de columnas en el código es basado en 0
+            let column = sheet.getRangeByIndexes(0, colNumber - 1, lastRow, 1);
+
+            // Desactivar el ajuste de texto en la columna
+            column.getFormat().setWrapText(false);
+
+            // Autoajustar el ancho de la columna según su contenido
+            column.getFormat().autofitColumns();
+        });
+    });
+
+    // Mensaje de confirmación en la consola
+    console.log("Ajuste de columnas completado.");
+}
