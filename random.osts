@@ -1,0 +1,44 @@
+//SELECCIONA N NUMERO DE CELDAS AL AZAR DE UN RANGO SELECCIONADO
+
+function main(workbook: ExcelScript.Workbook, n: number) {
+    // Obtener la hoja de cálculo activa.
+    let sheet = workbook.getActiveWorksheet();
+    
+    // Definir el rango de celdas a seleccionar.
+    let range = sheet.getRange(rangeAddress);
+    let values = range.getValues();
+    
+    // Obtener el número de filas y columnas del rango seleccionado.
+    let rowCount = range.getRowCount();
+    let colCount = range.getColumnCount();
+    
+    // Calcular el total de celdas en el rango.
+    let totalCells = rowCount * colCount;
+    
+    // Verificar si la cantidad de celdas a seleccionar es válida.
+    if (n > totalCells) {
+        throw new Error("El número de celdas a seleccionar excede el total disponible en el rango.");
+    }
+
+    // Crear un conjunto para almacenar índices de celdas seleccionadas aleatoriamente.
+    let selectedIndices = new Set<number>();
+    
+    // Seleccionar 'n' índices únicos de manera aleatoria.
+    while (selectedIndices.size < n) {
+        let randomIndex = Math.floor(Math.random() * totalCells);
+        selectedIndices.add(randomIndex);
+    }
+    
+    // Lista para almacenar las celdas seleccionadas.
+    let selectedCells: ExcelScript.Range[] = [];
+    
+    // Convertir los índices seleccionados en coordenadas de fila y columna.
+    selectedIndices.forEach(index => {
+        let row = Math.floor(index / colCount);
+        let col = index % colCount;
+        selectedCells.push(range.getCell(row, col));
+    });
+    
+    // Aplicar formato a las celdas seleccionadas (ejemplo: fondo amarillo).
+    selectedCells.forEach(cell => cell.getFormat().getFill().setColor("#FFFF00"));
+}
