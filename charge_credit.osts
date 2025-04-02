@@ -1,0 +1,44 @@
+ // decide si un valor es cargo o o abono dependiend
+// del simbolo que le precede 
+// + abono
+// - cargo 
+function main(workbook: ExcelScript.Workbook) {
+    // Obtener el rango actualmente seleccionado en la hoja de cálculo.
+    let range = workbook.getSelectedRange();
+    let values = range.getValues();
+
+    // Obtener el número de filas y columnas del rango seleccionado.
+    let rows = range.getRowCount();
+    let cols = range.getColumnCount();
+
+    // Reemplazar todas las apariciones de apóstrofes (') con una cadena vacía.
+    // Se asegura de que solo se reemplacen coincidencias exactas.
+    range.replaceAll("'", "", { completeMatch: true });
+    
+    // Aplicar formato numérico con separación de miles y dos decimales.
+    range.setNumberFormat("#,##0.00");
+
+    // Iterar sobre cada fila del rango seleccionado.
+    for (let row = 0; row < rows; row++) {
+        let operador = values[row][0] as string;
+        
+        // Si el valor en la primera columna es un '+', lo deja vacío.
+        if (operador === "+") {
+            values[row][0] = "";
+        } else {
+            // De lo contrario, mueve el valor de la segunda columna a la primera
+            // y deja vacía la segunda columna.
+            values[row][0] = values[row][1];
+            values[row][1] = "";
+        }
+    }
+    
+    // Aplicar formato numérico local con dos decimales.
+    range.setNumberFormatLocal("0.00");
+    
+    // Asignar los valores modificados de vuelta al rango seleccionado.
+    range.setValues(values);
+    
+    // Volver a aplicar el formato numérico local para garantizar coherencia.
+    range.setNumberFormatLocal("0.00");
+}
