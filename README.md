@@ -5,13 +5,14 @@
 Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Online. Contiene ejemplos prácticos de manipulación de datos, automatización de tareas y personalización de hojas de cálculo.
 
 ##Indice
-- [copy_paste](copy_paste.osts)
-- [del_col](del_col.osts)
-- [bank_support](bank_support.osts)
-- [date](date.osts)
-- [combine](combine.osts)
-- [charge_credit](charge_credit.osts)
+
 - [account_number](account_number.osts)
+- [bank_support](bank_support.osts)
+- [charge_credit](charge_credit.osts)
+- [combine](combine.osts)
+- [copy_paste](copy_paste.osts)
+- [date](date.osts)
+- [del_col](del_col.osts)
 
 ## copy_paste
 
