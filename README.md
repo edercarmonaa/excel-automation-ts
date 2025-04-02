@@ -21,9 +21,9 @@ Este código es útil cuando se necesita limpiar el contenido de un archivo de E
 ## bank_support
 Este script toma un rango de celdas seleccionado por el usuario, y con base en el banco y la fecha, asigna un valor específico a dos columnas del rango. El valor asignado sigue un patrón específico que depende del banco (por ejemplo, "SANTANDER" genera un valor como "CTA_2787_mm" donde "mm" es el mes de la fecha proporcionada). Este proceso se realiza para todas las filas del rango seleccionado.
 
-##date
+## date
 La funcionalidad de este script de Excel es convertir las fechas en un rango seleccionado de la hoja activa, de un formato específico (que parece ser 'D/MM/YYYY', con un día de dos dígitos seguido de un mes de dos dígitos y un año de cuatro dígitos) a un nuevo formato ('MM/DD/YYYY').
 
-##combine
+## combine
 Este script de ExcelScript está diseñado para combinar las descripciones de filas consecutivas con celdas vacías en la columna de fechas. El contenido de las filas vacías se combina en la fila de la fecha vacía hasta que se encuentre una fila con una fecha válida.
 
