@@ -1,5 +1,3 @@
-//SELECCIONA N NUMERO DE CELDAS AL AZAR DE UN RANGO SELECCIONADO
-
 function main(workbook: ExcelScript.Workbook, n: number) {
     // Obtener la hoja de cálculo activa.
     let sheet = workbook.getActiveWorksheet();
