@@ -10,6 +10,7 @@ Scripts desarrollados en TypeScript para su uso con Office Scripts en Excel Onli
 - [bank_support](bank_support.osts)
 - [date](date.osts)
 - [combine](combine.osts)
+- [charge_credit](charge_credit.osts)
 
 ## copy_paste
 
@@ -26,4 +27,7 @@ La funcionalidad de este script de Excel es convertir las fechas en un rango sel
 
 ## combine
 Este script de ExcelScript está diseñado para combinar las descripciones de filas consecutivas con celdas vacías en la columna de fechas. El contenido de las filas vacías se combina en la fila de la fecha vacía hasta que se encuentre una fila con una fecha válida.
+
+## charge_credit
+Este script en ExcelScript realiza varias operaciones sobre el rango seleccionado: elimina los apóstrofes de las celdas, aplica un formato numérico con separación de miles y dos decimales, y ajusta los valores de las columnas moviendo el contenido de la segunda columna a la primera si no es un + o dejando la celda vacía si es un +. Finalmente, reasigna los valores modificados y garantiza que el formato numérico se mantenga consistente con dos decimales.
 
