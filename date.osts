@@ -1,5 +1,6 @@
-//Convierte fechas de fotmato DDMMYYYY a formato a MM/DD/YYYY
+//Convierte fechas de fotmato 'DDMMYYYY' a formato a MM/DD/YYYY
 // de un rango de celdas seleccionadas
+
 function main(workbook: ExcelScript.Workbook) {
     // Obtener el rango actualmente seleccionado en la hoja de cálculo.
     let range = workbook.getSelectedRange();
