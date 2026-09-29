@@ -1,48 +1,50 @@
 function main(workbook: ExcelScript.Workbook, bank: number, account: number) {
-    // Obtener el rango actualmente seleccionado en la hoja de cálculo.
+    // Obtener el rango actualmente seleccionado en la hoja de calculo.
     let range = workbook.getSelectedRange();
     let values = range.getValues();
 
-    // Obtener el número de filas y columnas del rango seleccionado.
+    // Obtener el numero de filas del rango seleccionado.
     let rows = range.getRowCount();
-    let cols = range.getColumnCount();
 
-    // Variable para almacenar el número de cuenta asignado.
+    // Variable para almacenar el identificador de cuenta asignado.
     let cuenta = "" as string;
 
     // Iterar sobre cada fila del rango seleccionado.
     for (let row = 0; row < rows; row++) {
         let banco = values[row][bank] as string;
-        
-        // Verificar si la celda del banco no está vacía.
+
+        // Verificar si la celda del banco no esta vacia.
         if (banco.length !== 0) {
-            // Asignar el número de cuenta correspondiente según el banco.
+            // Asignar identificadores de ejemplo; reemplazarlos por datos reales solo en el libro local.
             switch (banco) {
                 case "SERFIN":
-                    cuenta = "123456789";
+                    cuenta = "CTA_EJEMPLO_SERFIN";
                     break;
                 case "BBVA":
-                    cuenta = "1011121314";
+                    cuenta = "CTA_EJEMPLO_BBVA";
                     break;
                 case "CITI":
-                    cuenta = "15161718192";
+                    cuenta = "CTA_EJEMPLO_CITI";
                     break;
                 case "HSBC":
-                    cuenta = "2021222324";
+                    cuenta = "CTA_EJEMPLO_HSBC";
                     break;
                 case "BANORTE":
-                    cuenta = "2526272829";
+                    cuenta = "CTA_EJEMPLO_BANORTE";
                     break;
                 case "COMPE":
-                    cuenta = "3132333435";
+                    cuenta = "CTA_EJEMPLO_COMPE";
+                    break;
+                default:
+                    cuenta = "";
                     break;
             }
-            
-            // Asignar el número de cuenta correspondiente a la columna de cuenta.
+
+            // Asignar el identificador correspondiente a la columna de cuenta.
             values[row][account] = cuenta;
         }
     }
-    
+
     // Establecer los valores actualizados en el rango seleccionado.
     range.setValues(values);
 }

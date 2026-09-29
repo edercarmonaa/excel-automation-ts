@@ -1,0 +1,45 @@
+# Local Office/Excel temporary files
+~$*
+*.tmp
+*.temp
+
+# Logs and reports
+*.log
+logs/
+coverage/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Credentials and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account.json
+secrets.json
+auth.json
+
+# Local databases and dumps
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+
+# Backups and archives
+*.bak
+*.backup
+*.old
+*.copy
+*.zip
+*.rar
+*.7z
+
+# Node tooling, if scripts are later validated locally
+node_modules/
+dist/
+build/
