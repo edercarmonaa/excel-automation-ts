@@ -49,11 +49,7 @@ Flujo general:
 
 ## Capturas
 
-El proyecto no incluye capturas de pantalla. Si se agregan mas adelante, una ubicacion sugerida es:
-
-```text
-docs/images/
-```
+![Panel principal](docs/excel-automation-ts.png)
 
 ## Tecnologias utilizadas
 
