@@ -49,7 +49,7 @@ Flujo general:
 
 ## Capturas
 
-![Panel principal](docs/excel-automation-ts.png)
+![Script con parametros](excel-automation-ts.png)
 
 ## Tecnologias utilizadas
 
