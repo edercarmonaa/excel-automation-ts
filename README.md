@@ -180,4 +180,4 @@ git checkout -b feature/nueva-automatizacion
 
 ## Licencia
 
-Este proyecto todavia no incluye un archivo de licencia.
+Este proyecto está publicado bajo licencia MIT. Consulta `LICENSE` para el texto completo.
